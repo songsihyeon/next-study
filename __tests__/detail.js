@@ -1,12 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import Detail from "../pages/detail";
 
-describe("App", () => {
-  it("메뉴가 렌더링 되어야 한다", () => {
-    const { getByText } = render(<Detail />);
+describe("Detail", () => {
+  it("강의 목록이 렌더링 되어야 한다.", () => {
+    const { getByTitle } = render(<Detail />);
 
-    const menu = getByText("메뉴");
-
-    expect(menu).toBeInTheDocument();
+    const lectureList = getByTitle("lectureList");
+    expect(lectureList).toBeInTheDocument();
   });
 });
