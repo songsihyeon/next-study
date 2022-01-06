@@ -1,10 +1,20 @@
 import React from "react";
 
+interface Category {
+  id: number;
+  name: string;
+}
+
+interface Tag {
+  id: number;
+  name: string;
+}
+
 interface Lecture {
   id: number;
-  category: mockCategory;
+  category: Category;
   title: string;
-  tags: mockTags;
+  tags: [Tag];
   description: string;
   thumb: string;
   isHot: boolean;
