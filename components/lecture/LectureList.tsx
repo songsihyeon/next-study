@@ -4,18 +4,24 @@ import { useQuery } from "react-query";
 
 const LectureList = (): JSX.Element => {
   const { isLoading, data } = useQuery("lecture_list", () => {
-    fetch("api/lectures").then((res) => {
-      return res.json();
-    });
+    return fetch("api/lectures")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        return res;
+      });
   });
 
-  console.log(data);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  return (
-    <div>
-      <LectureItem />
-    </div>
-  );
+  const lectureItems = data.lectureListm.map((lecture) => {
+    return <LectureItem key={lecture.id} lecture={lecture} />;
+  });
+
+  return <div>{lectureItems}</div>;
 };
 
 export default LectureList;

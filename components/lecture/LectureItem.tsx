@@ -1,5 +1,20 @@
 import React from "react";
 
+interface Lecture {
+  id: number;
+  category: mockCategory;
+  title: string;
+  tags: mockTags;
+  description: string;
+  thumb: string;
+  isHot: boolean;
+  isNew: boolean;
+}
+
+interface Props {
+  lecture: Lecture;
+}
+
 const LectureItem = (): JSX.Element => {
   return (
     <div>
